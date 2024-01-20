@@ -5,6 +5,11 @@ _start:
     movq $0, %r15     # Result value is stored in %r15
     jmp reset_numbers # Jump to pre-loop register reset, to initialize first & last digits and the first-digit-found flag
 
+reset_numbers:
+    movb $0, %r11b # first digit
+    movb $0, %r12b # last digit
+    movb $0, %r13b # first digit found flag
+
 loop:
     cmpb $0x30, (%r8) # Skip character if less than ascii '0'
     jl inc
@@ -33,12 +38,6 @@ inc:
     je add_to_result     # and add to final result if so
 
     jmp loop             # Jump to beginning of the main loop
-
-reset_numbers:
-    movb $0, %r11b # first digit
-    movb $0, %r12b # last digit
-    movb $0, %r13b # first digit found flag
-    jmp loop       # jump to the beginning of the main loop
 
 add_to_result:
     imulq $10, %r11      # Multiply first digit by 10
@@ -83,10 +82,10 @@ end:
 
 .data
 result: .ascii "         "
-result_end: result_len = . - result
+result_end:
 input: .ascii "1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet
 "
-input_end: input_len = . - input
+input_end:
