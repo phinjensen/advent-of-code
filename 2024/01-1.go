@@ -6,14 +6,14 @@ import (
 	"strconv"
 )
 
-func abs(i int) int {
+func Abs(i int) int {
 	if i < 0 {
 		return -i
 	}
 	return i
 }
 
-func main() {
+func Day1_1() {
 	var a, b string
 	var left, right []int
 	for {
@@ -30,7 +30,7 @@ func main() {
 	slices.Sort(right)
 	result := 0
 	for i := range len(left) {
-		result += abs(left[i] - right[i])
+		result += Abs(left[i] - right[i])
 	}
 	fmt.Println(result)
 }

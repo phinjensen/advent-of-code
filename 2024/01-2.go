@@ -6,14 +6,7 @@ import (
 	"strconv"
 )
 
-func abs(i int) int {
-	if i < 0 {
-		return -i
-	}
-	return i
-}
-
-func main() {
+func Day1_2() {
 	var a, b string
 	var left, right []int
 	for {
