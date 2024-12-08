@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	Day4_2()
+	Day6_2()
 }
