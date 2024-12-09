@@ -6,11 +6,6 @@ import (
 	"os"
 )
 
-type XY struct {
-	X int
-	Y int
-}
-
 func InitMap() (int, int, []string) {
 	scanner := bufio.NewScanner(os.Stdin)
 	map_ := make([]string, 0)

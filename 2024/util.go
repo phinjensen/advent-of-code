@@ -6,3 +6,8 @@ func Abs(i int) int {
 	}
 	return i
 }
+
+type XY struct {
+	X int
+	Y int
+}
